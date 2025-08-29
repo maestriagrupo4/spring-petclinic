@@ -1,15 +1,5 @@
-
-
-
-FROM openjdk:11-jre-slim
-
-WORKDIR /app
-
-# Copiar el JAR generado por Maven
-COPY target/spring-petclinic-*.jar app.jar
-
-# Exponer puerto
-EXPOSE 8080
-
-# Comando de inicio
-CMD ["java", "-jar", "app.jar"]
+FROM anapsix/alpine-java 
+LABEL maintainer="cmerchan@ups.edu.ec"  
+COPY /target/spring-petclinic-2.3.0.BUILD-SNAPSHOT.jar /home/spring
+petclinic-2.3.0.jar  
+CMD ["java","-jar","/home/spring-petclinic-2.3.0.jar"]
