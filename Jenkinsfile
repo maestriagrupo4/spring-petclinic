@@ -6,7 +6,8 @@ pipeline {
             agent {
                 docker {
                     image 'maven:3.8.6-openjdk-11'
-                    args '-v $HOME/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock'
+                    // Cambiar de $HOME/.m2 a un path absoluto conocido
+                    args '-v /var/jenkins_home/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock'
                 }
             }
             steps {
